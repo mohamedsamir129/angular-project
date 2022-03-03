@@ -12,11 +12,11 @@ export class ProductsComponent implements OnInit {
   constructor()
      {
 
-       this.Discount=discount.D1,
+       this.Discount=discount.NoDiscount,
        this.Store_name='Gallery',
-       this.Store_Logo='./assets/2.png',
-       this.ClientName='mohamed',
-       this.isPurchased=true,
+       this.Store_Logo='../../assets/2.PNG',
+       this.ClientName='Enter your name',
+       this.isPurchased=false,
        this.ProductList=[
         {
           ID:1,
@@ -68,5 +68,11 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  purshased():void{
+
+    this.isPurchased=!this.isPurchased;
+   
+   }
+   
 
 }
