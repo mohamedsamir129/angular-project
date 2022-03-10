@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { discount } from '../Shared Classes and types/DiscountOffers';
 import { Iproduct } from '../Shared Classes and types/IProduct';
 import { ICategory } from '../Shared Classes and types/ICategory';
+import { ProductServiceService } from '../servises/product-service.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -9,7 +10,7 @@ import { ICategory } from '../Shared Classes and types/ICategory';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor()
+  constructor(private ProductService:ProductServiceService)
      {
 
        this.Discount=discount.NoDiscount,
@@ -20,7 +21,7 @@ export class ProductsComponent implements OnInit {
        this.ProductList=[
         {
           ID:1,
-          Name:"Samsung Galaxy A12",
+          Name:"Samsung A12",
           Quantity:1,
           Price:200,
           Img:""
@@ -40,6 +41,7 @@ export class ProductsComponent implements OnInit {
           Img:""
         }
       ]
+      this.ProductList= this.renderValues();
       this.CategoryList=[
         {
           ID:1,
@@ -65,7 +67,9 @@ export class ProductsComponent implements OnInit {
   ProductList:Iproduct[];
   CategoryList:ICategory[];
   ClientName:string;   
-
+  renderValues(){
+    return this.ProductService.getAllProducts();
+   }
   ngOnInit(): void {
   }
   purshased():void{

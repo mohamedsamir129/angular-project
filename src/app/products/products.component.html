@@ -25,12 +25,15 @@
 <ng-template #notPurshed>
 <table *ngFor="let product of ProductList" style="border: 1px solid;width: 50%;" >
     <tr>
+        
         <th> {{product.ID}} </th>
         <th> {{product.Name}} </th>
         <th> {{product.Quantity}} </th>
         <th> {{product.Price}} </th>
         
     </tr>
+    
+    
 </table>
 </ng-template>
 <ng-template #thenpurshased>
